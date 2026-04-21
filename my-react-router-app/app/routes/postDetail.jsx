@@ -1,4 +1,4 @@
-import { Form, useLoaderData } from "react-router";
+import { Form, Link, useLoaderData } from "react-router";
 import { sql } from "../api/sql";
 import Header from "../components/header";
 
@@ -15,12 +15,11 @@ export default function postDetail() {
 
   return (
     <section>
-      <Header />
       <article>
-        <img src={post.img} alt={post.title} />
-        <h2>{post.date}</h2>
-        <h1>{post.title}</h1>
-        <h4> {category} </h4>
+        <img src={post[0].img} alt={post[0].title} />
+        <h2>{post[0].date}</h2>
+        <h1>{post[0].title}</h1>
+        <h4>{post[0].short}</h4>
         <section>
           <Form action="/delPost" method="post">
             <input type="hidden" name="id" value={post.id} />
@@ -29,6 +28,7 @@ export default function postDetail() {
           </Form>
         </section>
       </article>
+      <Link to={`/`}>Zpět</Link>
     </section>
   );
 }

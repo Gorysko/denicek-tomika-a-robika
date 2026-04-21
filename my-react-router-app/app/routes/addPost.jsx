@@ -1,6 +1,6 @@
 import Header from "../components/header";
 import NewPost from "../components/newpost";
-import { redirect, useLoaderData } from "react-router";
+import { Link, redirect, useLoaderData } from "react-router";
 import { getCategory } from "../api/load.db";
 import { insertCon } from "../api/add.db";
 
@@ -17,6 +17,7 @@ export default function addPost() {
     <body>
       <Header />
       <NewPost categoryList={categoryList} />
+      <Link to={`/`}>Zpět</Link>
     </body>
   );
 }
